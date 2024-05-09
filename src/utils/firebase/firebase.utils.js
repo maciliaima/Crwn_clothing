@@ -43,7 +43,7 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
-
+//db est une instance de votre base de données Firestore.
 export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (
@@ -62,18 +62,17 @@ export const addCollectionAndDocuments = async (
   await batch.commit();
   console.log('done');
 };
-//code
+//récupère les données de la collection "categories" dans votre BDD et les organise dans un objet JavaScript 
 export const getCategoriesAndDocuments = async () => {
   const collectionRef = collection(db, 'categories');
   const q = query(collectionRef);
-
   const querySnapshot = await getDocs(q);
   const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
     const { title, items } = docSnapshot.data();
     acc[title.toLowerCase()] = items;
     return acc;
   }, {});
-
+//retourne l'objet categoryMap(les catégories et les documents associés sous forme d'objets JavaScript)
   return categoryMap;
 };
 
