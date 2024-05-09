@@ -43,7 +43,7 @@ export const signInWithGooglePopup = () =>
   signInWithPopup(auth, googleProvider);
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
-//db est une instance de votre base de données Firestore.
+//db est une instance de votre BDD Firestore.
 export const db = getFirestore();
 
 export const addCollectionAndDocuments = async (
