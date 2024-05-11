@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from 'react';
-
+// Trouver si le produit est déjà dans le panier
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
     (cartItem) => cartItem.id === productToAdd.id
@@ -50,9 +50,14 @@ export const CartContext = createContext({
 });
 
 export const CartProvider = ({ children }) => {
+//useState: déclarer plusieurs variables d'état : 
+//isCartOpen pour indiquer si le panier est ouvert
   const [isCartOpen, setIsCartOpen] = useState(false);
+//cartItems pour stocker les éléments du panier
   const [cartItems, setCartItems] = useState([]);
+//cartCount pour suivre le nombre total d'articles dans le panier 
   const [cartCount, setCartCount] = useState(0);
+//et cartTotal pour calculer le montant total du panier.
   const [cartTotal, setCartTotal] = useState(0);
 
   useEffect(() => {
