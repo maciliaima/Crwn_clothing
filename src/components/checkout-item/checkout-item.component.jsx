@@ -10,16 +10,18 @@ import {
   Arrow,
   Value,
   RemoveButton,
-} from './checkout-item.styles';
+} from './checkout-item.styles'; 
 
 const CheckoutItem = ({ cartItem }) => {
   const { name, imageUrl, price, quantity } = cartItem;
-
+// Récupération des fonctions du contexte du panier via useContext
   const { clearItemFromCart, addItemToCart, removeItemToCart } =
     useContext(CartContext);
-
+// Définition de la fonction de gestion d'événement pour vider un article du panier
   const clearItemHandler = () => clearItemFromCart(cartItem);
+// Définition de la fonction de gestion d'événement pour ajouter un article au panier
   const addItemHandler = () => addItemToCart(cartItem);
+// Définition de la fonction de gestion d'événement pour retirer un article du panier
   const removeItemHandler = () => removeItemToCart(cartItem);
 
   return (

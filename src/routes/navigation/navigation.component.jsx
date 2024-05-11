@@ -1,4 +1,7 @@
+//Fragment: envelopper plusieurs éléments sans ajouter d'élément supplémentaire au DOM
 import { Fragment, useContext } from 'react';
+//Outlet: afficher les composants enfants du composant parent 
+//Link est utilisé pour créer des liens dans l'application.
 import { Outlet, Link } from 'react-router-dom';
 
 import CartIcon from '../../components/cart-icon/cart-icon.component';
@@ -16,12 +19,13 @@ import {
   NavLink,
   LogoContainer,
 } from './navigation.styles';
-
+//useContext: accéder aux valeurs fournies par les contextes UserContext et CartContext
 const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   const { isCartOpen } = useContext(CartContext);
-
+//Ce bloc retourne le contenu du composant Navigation.
   return (
+//Il utilise également Outlet pour afficher les composants enfants du composant parent défini par <Routes>
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
